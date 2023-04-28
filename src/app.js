@@ -87,11 +87,16 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (button.innerText === "Ans") {
           displayText += (previousResult !== null) ? previousResult.toString() : "";
           display.value = displayText;
+        } else if (button.innerText === "Rad") {
+          displayText = "";
+          display.value = displayText;
+        } else if (button.innerText === "Deg") {
+          displayText = "";
+          display.value = displayText;
         } else if (button.innerText === "Inv") {
           displayText = "";
           display.value = displayText;
-        }
-        else {
+        } else {
           displayText += button.innerText;
           display.value = displayText;
         }
