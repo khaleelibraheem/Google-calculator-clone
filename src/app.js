@@ -57,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (button.innerText === "x!") {
           displayText += "!";
           display.value = displayText;
+        } else if (button.innerText === "CE") {
+          displayText = displayText.slice(0, -1);
+          display.value = displayText;
         } else if (button.innerText === "tan") {
           displayText += "tan(";
           display.value = displayText;
@@ -84,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
           displayText += "E";
           display.value = displayText;
         } else if (button.innerText === "Ans") {
-          displayText += (previousResult !== null) ? previousResult.toString() : "";
+          displayText +=
+            previousResult !== null ? previousResult.toString() : "";
           display.value = displayText;
         } else if (button.innerText === "Rad") {
           displayText = "";
@@ -93,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
           displayText = "";
           display.value = displayText;
         } else if (button.innerText === "Inv") {
-          displayText = "";
-          display.value = displayText;
+          if (button.innerText === "sin") {
+          }
         } else {
           displayText += button.innerText;
           display.value = displayText;
