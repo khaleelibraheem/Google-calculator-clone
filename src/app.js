@@ -2,7 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll("button");
   const display = document.querySelector("#calc-display");
   const fx = document.querySelector("#fx");
-  const inverse = document.querySelector(".inverse");
+  const inv = document.querySelector("#inv");
+  const sinButton = document.querySelector("#sin");
+  const tanButton = document.querySelector("#tan");
+  const cosButton = document.querySelector("#cos");
+  const lnButton = document.querySelector("#ln");
+  const squareButton = document.querySelector("#square");
 
   let displayText = "";
   let result;
@@ -97,7 +102,54 @@ document.addEventListener("DOMContentLoaded", function () {
           displayText = "";
           display.value = displayText;
         } else if (button.innerText === "Inv") {
-          displayText = "";
+          // Switch the text of the sin button
+          if (sinButton.innerText === "sin") {
+            sinButton.innerText = "sin⁻¹";
+          } else {
+            sinButton.innerText = "sin";
+          }
+
+          // Switch the text of the cos button
+          if (cosButton.innerText === "cos") {
+            cosButton.innerText = "cos⁻¹";
+          } else {
+            cosButton.innerText = "cos";
+          }
+
+          // Switch the text of the tan button
+          if (tanButton.innerText === "tan") {
+            tanButton.innerText = "tan⁻¹";
+          } else {
+            tanButton.innerText = "tan";
+          }
+
+          // Switch the text of the ln button
+          if (lnButton.innerText === "ln") {
+            lnButton.innerText = "e^x";
+          } else {
+            lnButton.innerText = "ln";
+          }
+
+          // Switch the text of the √ button
+          if (squareButton.innerText === "√") {
+            squareButton.innerText = "x²";
+          } else {
+            squareButton.innerText = "√";
+          }
+        } else if (button.innerText === "sin⁻¹") {
+          displayText += "arcsin(";
+          display.value = displayText;
+        } else if (button.innerText === "cos⁻¹") {
+          displayText += "arccos(";
+          display.value = displayText;
+        } else if (button.innerText === "tan⁻¹") {
+          displayText += "arctan(";
+          display.value = displayText;
+        } else if (button.innerText === "e^x") {
+          displayText += "e^";
+          display.value = displayText;
+        } else if (button.innerText === "x²") {
+          displayText += "^2";
           display.value = displayText;
         } else {
           displayText += button.innerText;
