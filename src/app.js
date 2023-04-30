@@ -20,13 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
       .replace(/e/g, "Math.E")
       .replace(/tan/g, "Math.tan")
       .replace(/√/g, "Math.sqrt")
-      .replace("^", "**");
+      .replace("^", "**")
+      .replace(/(\d+)!/g, "factorial($1)");
     if (displayText.includes("E")) {
       let input = displayText.split("E");
       result = parseFloat(input[0]) * 10 ** parseFloat(input[1]);
-    } else if (convertedValue.includes("!")) {
-      const num = parseInt(convertedValue.split("!")[0]);
-      result = factorial(num);
+      previousResult = result;
     } else {
       result = eval(convertedValue);
       previousResult = result;
@@ -42,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       result *= i;
     }
 
-    return result;
+    return previousResult = result;
   }
 
   buttons.forEach(function (button) {
