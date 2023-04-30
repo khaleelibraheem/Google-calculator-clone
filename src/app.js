@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       result *= i;
     }
 
-    return previousResult = result;
+    return (previousResult = result);
   }
 
   buttons.forEach(function (button) {
@@ -97,8 +97,8 @@ document.addEventListener("DOMContentLoaded", function () {
           displayText = "";
           display.value = displayText;
         } else if (button.innerText === "Inv") {
-          if (button.innerText === "sin") {
-          }
+          displayText = "";
+          display.value = displayText;
         } else {
           displayText += button.innerText;
           display.value = displayText;
