@@ -16,7 +16,38 @@
     .btn-darkk {
       background-color: var(--bs-dark-bg-subtle);
     }
+    #btn-wrapper {
+      display: grid;
+      grid-template-columns: 44% 55%;
+      gap:7px;
+    }
+    button{
+      width: 100% !important;
+    }
+    .rad {
+      display: flex;
+      grid-column: span 2;
+    }
+    #ce {
+      display: none;
+    }
 
+    #fx-home {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+      row-gap: 0;
+    }
+    #numb-home {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      row-gap: 0;
+    }
+
+    #deg{
+      color: #999;
+    }
     @media screen and (min-width: 992px) {
       #fx-toggler,
       #num-toggler {
@@ -28,6 +59,22 @@
         position: absolute;
         visibility: hidden;
       }
+      #xy {
+        grid-column: span 2;
+      }
+      #ce {
+        display: none;
+      }
+      #btn-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0;
+      }
+      #fx-home {
+        /* display: none; */
+        grid-template-columns: repeat(4, 1fr);
+        gap: 7px;
+        row-gap: 0;
+      }
     }
   </style>
   <body>
@@ -35,7 +82,7 @@
       <h1 class="text-center">Scientific Calculator</h1>
       <div class="row">
         <div class="offset-md-1 offset-lg-3 col-12 col-md-10 col-lg-6">
-          <div class="card">
+          <div class="card" id="card">
             <div class="card-body">
               <input
                 id="calc-display"
@@ -45,217 +92,172 @@
                 aria-label=".form-control-lg example"
                 placeholder="0"
               />
-              <div class="row">
-                <div class="col-12 col-lg-6">
-                  <div class="row gx-2 show" id="fx">
-                    <div class="btn-group col-6 col-lg-8" role="group">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        Rad
-                      </button>
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        Deg
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        x!
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="sin"
-                      >
-                        sin
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="log"
-                      >
-                        log
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        π
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="inv"
-                      >
-                        Inv
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="ln"
-                      >
-                        ln
-                      </button>
-                    </div>
-
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        e
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="tan"
-                      >
-                        tan
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="square"
-                      >
-                        √
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button
-                        class="btn btn-light w-100 mt-2 border btn-darkk"
-                        id="cos"
-                      >
-                        cos
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        EXP
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        x^y
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        Ans
-                      </button>
-                    </div>
-                    <div class="col-3 col-lg-4">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        CE
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 col-lg-6">
-                  <div class="row gx-2">
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        (
-                      </button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        )
-                      </button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        %
-                      </button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        AC
-                      </button>
-                    </div>
-
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">7</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">8</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">9</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        ÷
-                      </button>
-                    </div>
-
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">4</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">5</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">6</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        ×
-                      </button>
-                    </div>
-
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">1</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">2</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">3</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        -
-                      </button>
-                    </div>
-
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">0</button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border">.</button>
-                    </div>
-                    <div class="col-3">
-                      <button
-                        class="btn btn-primary w-100 mt-2 border border-primary"
-                      >
-                        =
-                      </button>
-                    </div>
-                    <div class="col-3">
-                      <button class="btn btn-light w-100 mt-2 border btn-darkk">
-                        +
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-5 btn-group" role="group">
-                    <button
-                      class="btn btn- border-info"
-                      id="num-toggler"
-                      style="font-weight: bold"
-                    >
-                      123
+              <div id="btn-wrapper">
+                <div id="fx-home">
+                  <div class="rad btn-group">
+                    <button id="rad" class="btn btn-light w-100 mt-2 border btn-darkk">
+                      Rad
                     </button>
-                    <button
-                      class="btn btn-primary"
-                      id="fx-toggler"
-                      style="font-weight: bold"
-                    >
-                      Fx
+                    <button id="deg" class="btn btn-light w-100 mt-2 border btn-darkk">
+                      Deg
                     </button>
                   </div>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    x!
+                  </button>
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="inv"
+                  >
+                    Inv
+                  </button>
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="sin"
+                  >
+                    sin
+                  </button>
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="ln"
+                  >
+                    ln
+                  </button>
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    π
+                  </button>
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="cos"
+                  >
+                    cos
+                  </button>
+
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="log"
+                  >
+                    log
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    e
+                  </button>
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="tan"
+                  >
+                    tan
+                  </button>
+                  <button
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                    id="square"
+                  >
+                    √
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    Ans
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    EXP
+                  </button>
+
+                  <button
+                    id="xy"
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                  >
+                    x^y
+                  </button>
+
+                  <button
+                    id="ce"
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                  >
+                    CE
+                  </button>
+                </div>
+
+                <div id="numb-home">
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    (
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    )
+                  </button>
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    %
+                  </button>
+
+                  <button
+                    id="ac"
+                    class="btn btn-light w-100 mt-2 border btn-darkk"
+                  >
+                    AC
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border">7</button>
+
+                  <button class="btn btn-light w-100 mt-2 border">8</button>
+
+                  <button class="btn btn-light w-100 mt-2 border">9</button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    ÷
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border">4</button>
+
+                  <button class="btn btn-light w-100 mt-2 border">5</button>
+
+                  <button class="btn btn-light w-100 mt-2 border">6</button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    ×
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border">1</button>
+
+                  <button class="btn btn-light w-100 mt-2 border">2</button>
+
+                  <button class="btn btn-light w-100 mt-2 border">3</button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    -
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border">0</button>
+                  <button class="btn btn-light w-100 mt-2 border">.</button>
+                  <button
+                    class="btn btn-primary w-100 mt-2 border border-primary"
+                  >
+                    =
+                  </button>
+
+                  <button class="btn btn-light w-100 mt-2 border btn-darkk">
+                    +
+                  </button>
+                </div>
+              </div>
+              <div class="row mt-3">
+                <div class="col-5 btn-group" role="group">
+                  <button
+                    class="btn btn- border-info"
+                    id="num-toggler"
+                    style="font-weight: bold"
+                  >
+                    123
+                  </button>
+                  <button
+                    class="btn btn-primary"
+                    id="fx-toggler"
+                    style="font-weight: bold"
+                  >
+                    Fx
+                  </button>
                 </div>
               </div>
             </div>
