@@ -108,9 +108,9 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         result = Math.acos(angle);
       }
-      return previousResult = result;
+      return (previousResult = result);
     }
-    
+
     // Tan function
     function angT(angle) {
       let result;
@@ -145,19 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  
-
-  function displayFx() {
-    const fxhome = document.querySelector("#fx-home");
-    const numbHome = document.querySelector("#numb-home");
-    if (fxhome.style.display === "none") {
-      fxhome.style.display = "grid";
-      numbHome.style.display = "none";
-    } else {
-      fxhome.style.display = "none";
-      numbHome.style.display = "grid";
-    }
-  }
   buttons.forEach(function (button) {
     button.addEventListener("click", function () {
       let currentValue;
@@ -222,7 +209,6 @@ document.addEventListener("DOMContentLoaded", function () {
           radButton.style.color = "black";
           degButton.style.color = "#999";
         } else if (button.innerText === "Inv") {
-          
           // Switch the text of the sin button
           if (sinButton.innerText === "sin") {
             sinButton.innerText = "sin⁻¹";
